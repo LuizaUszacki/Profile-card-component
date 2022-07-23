@@ -1,0 +1,101 @@
+@use '../utils' as u;
+
+body {
+    background: var(--dark-cyan);
+    background-image: url('../images/bg-pattern-top.svg'), url('../images/bg-pattern-bottom.svg');
+    background-size: 130.27vh 130.27vh, 135vh 135vh;
+    background-position: right 51vw bottom 32vh,
+                         left 49vw top 51vh;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    background: var(--white);
+    border-radius: u.rem(15);
+    overflow: hidden;
+    width: min(u.rem(350), 100% - u.rem(50));
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, auto);
+
+    &__banner {
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    &__content {
+        height: 100%;
+        position: relative;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        padding: u.rem(70) 0 u.rem(25);
+        height: auto;
+        
+
+        &__image {
+            background: var(--white);
+            height: u.rem(106);
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            z-index: 11;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                width: 100%;
+                padding: u.rem(5);
+                border-radius: 50%;
+            }
+        }
+
+        &__personal-info {
+            margin-bottom: u.rem(24);
+
+            & > * {
+                text-align: center;
+            }
+
+            h1 {
+                margin-bottom: u.rem(7);
+
+                span {
+                    margin-left: u.rem(10);
+                }
+                
+            } 
+        }
+
+        &__social {
+            width: 100%;
+            border-top: u.rem(1) solid var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            padding-top: u.rem(27);
+
+            .social-info {
+                display: flex;
+                flex-direction: column-reverse;
+                align-self: center;
+                justify-content: center;
+
+                & > * {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
